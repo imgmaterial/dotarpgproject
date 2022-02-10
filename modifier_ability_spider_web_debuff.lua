@@ -1,5 +1,6 @@
 modifier_ability_spider_web_debuff = class({})
 
+local webunit = 0
 
 function modifier_ability_spider_web_debuff:IsHidden()
     return false
@@ -55,6 +56,7 @@ function modifier_ability_spider_web_debuff:OnDestroyed()
 	if not self.thinker then return end
 
 	UTIL_Remove( self:GetParent() )
+    UTIL_Remove( webunit )
 end
 
 function modifier_ability_spider_web_debuff:OnIntervalThink()
@@ -74,6 +76,13 @@ function modifier_ability_spider_web_debuff:OnIntervalThink()
     for i, enemy in pairs(enemies) do
         self:SpawnWebSpiders(enemy:GetAbsOrigin())
     end
+
+    
+    if self:GetCaster():IsAlive() == false then
+        self:GetParent():RemoveModifierByName("modifier_ability_spider_web_debuff")
+    end
+
+
 end
 
 

@@ -18,6 +18,15 @@ function spider_boss_web_ability:OnSpellStart()
     --webunit:AddNewModifier(nil, nil, "modifier_ability_spider_web_debuff", nil)
     local caster = self:GetCaster()
 
+    Timers:CreateTimer(function()
+        if caster:IsAlive() == false then
+            webunit:Kill(nil, nil)
+        end
+
+        return 5.0
+    end)
+
+
     CreateModifierThinker(
 		caster, 
 		self, 
