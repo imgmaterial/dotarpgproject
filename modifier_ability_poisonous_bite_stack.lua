@@ -15,12 +15,7 @@ end
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_ability_poisonous_bite_stack:OnCreated( kv )
-	Timers:CreateTimer({
-		endTime = 10,
-		callback = function()
-			self.modifier:RemoveStack()
-		end
-	  })
+
 end
 
 function modifier_ability_poisonous_bite_stack:OnRemoved()

@@ -28,9 +28,6 @@ end
 
 function modifier_ability_poisonous_bite_debuff:OnRefresh( kv )
 	-- references
-	self.movespeed_loss = self:GetAbility():GetSpecialValueFor( "movespeed_loss" )
-	self.armor_loss = self:GetAbility():GetSpecialValueFor( "armor_loss" )
-	self.duration = kv.stack_duration
 
 	if IsServer() then
 		self:AddStack( self.duration )
