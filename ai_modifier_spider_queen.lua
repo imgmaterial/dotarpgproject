@@ -73,13 +73,12 @@ function ai_modifier_spider_queen:AggressiveThink()
     
 
     if self.unit:GetHealthPercent() < healthtransitionvalue  then
-        healthtransitionvalue = healthtransitionvalue - 20
-        print(healthtransitionvalue)
+        healthtransitionvalue = healthtransitionvalue - 10
         local web = self.unit:FindAbilityByName("spider_boss_web_ability")
+        local cocoon = self.unit:FindAbilityByName("ability_web_cocoon")
+        self.unit:CastAbilityOnPosition(self.aggroTarget:GetAbsOrigin(), web, -1)
+        self.unit:CastAbilityImmediately(cocoon, -1)
 
-        print(self.unit:GetAbsOrigin())
-        self.unit:CastAbilityOnPosition(self.aggroTarget:GetAbsOrigin(), web, 9)
-        print("after")
         self.state = AI_STATE_AGGRESSIVE
         return
     end
