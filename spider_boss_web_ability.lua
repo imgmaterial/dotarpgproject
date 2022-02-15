@@ -19,10 +19,11 @@ function spider_boss_web_ability:OnSpellStart()
     local caster = self:GetCaster()
 
     Timers:CreateTimer(function()
-        if caster:IsAlive() == false then
-            webunit:Kill(nil, nil)
-        end
-
+        if IsValidEntity(caster) then
+            if caster:IsAlive() == false then
+                webunit:Kill(nil, nil)
+            end
+        end    
         return 5.0
     end)
 
