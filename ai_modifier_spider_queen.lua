@@ -71,6 +71,15 @@ function ai_modifier_spider_queen:AggressiveThink()
         return -- Stop processing this state
     end
     
+    local enrage = self.unit:FindAbilityByName("ability_spider_enrage")
+    self.unit:CastAbilityImmediately(enrage, -1)
+
+    if self.unit:GetHealthPercent() < 70  then
+        local decompose = self.unit:FindAbilityByName("ability_spider_decompose")
+        self.unit:CastAbilityImmediately(decompose, -1)
+    end
+
+
 
     if self.unit:GetHealthPercent() < healthtransitionvalue  then
         healthtransitionvalue = healthtransitionvalue - 10
