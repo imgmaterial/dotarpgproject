@@ -32,7 +32,7 @@ function modifier_ability_spider_web_debuff:ContainsInList(item, list)
 end
 
 function modifier_ability_spider_web_debuff:SpawnWebSpiders(location)
-	local webspider = CreateUnitByName("npc_dota_creature_forest_spider" ,location , true, nil, nil, DOTA_TEAM_NEUTRALS)
+	local webspider = CreateUnitByName("npc_dota_creature_forest_spider_boss_unit" ,location , true, nil, nil, DOTA_TEAM_NEUTRALS)
 end
 
 
